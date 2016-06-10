@@ -3,17 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Mr Zhou’s blog</title>
+  <title>java 如何终止线程 | Mr Zhou’s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="总结技术，玩转人生">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mr Zhou’s blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="在Java早期的版本中，提供了一个终止线程的方法：stop()。但在随后的版本中，这个方法被遗弃了，因为它的中断是”立即“，这样有可能会造成数据不一致的情况。比如说在转账的过程中。因此在jdk1.5的时候，有一个方法出来解决这个问题：intertupt()。这个方法会在run（）中止，【Interrupting a thread that is not alive need not have">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java 如何终止线程">
+<meta property="og:url" content="http://yoursite.com/2016/06/09/java 如何终止线程/index.html">
 <meta property="og:site_name" content="Mr Zhou’s blog">
-<meta property="og:description" content="总结技术，玩转人生">
+<meta property="og:description" content="在Java早期的版本中，提供了一个终止线程的方法：stop()。但在随后的版本中，这个方法被遗弃了，因为它的中断是”立即“，这样有可能会造成数据不一致的情况。比如说在转账的过程中。因此在jdk1.5的时候，有一个方法出来解决这个问题：intertupt()。这个方法会在run（）中止，【Interrupting a thread that is not alive need not have">
+<meta property="og:image" content="http://yoursite.com/images/thread_interrupter.png">
+<meta property="og:updated_time" content="2016-06-10T04:58:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mr Zhou’s blog">
-<meta name="twitter:description" content="总结技术，玩转人生">
+<meta name="twitter:title" content="java 如何终止线程">
+<meta name="twitter:description" content="在Java早期的版本中，提供了一个终止线程的方法：stop()。但在随后的版本中，这个方法被遗弃了，因为它的中断是”立即“，这样有可能会造成数据不一致的情况。比如说在转账的过程中。因此在jdk1.5的时候，有一个方法出来解决这个问题：intertupt()。这个方法会在run（）中止，【Interrupting a thread that is not alive need not have">
+<meta name="twitter:image" content="http://yoursite.com/images/thread_interrupter.png">
   
     <link rel="alternate" href="/atom.xml" title="Mr Zhou’s blog" type="application/atom+xml">
   
@@ -66,9 +69,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-java 如何终止线程" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-java 如何终止线程" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/06/09/java 如何终止线程/" class="article-date">
   <time datetime="2016-06-09T14:37:03.000Z" itemprop="datePublished">2016-06-09</time>
@@ -81,8 +82,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/09/java 如何终止线程/">java 如何终止线程</a>
+    <h1 class="article-title" itemprop="name">
+      java 如何终止线程
     </h1>
   
 
@@ -106,100 +107,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-个人博客" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/09/个人博客/" class="article-date">
-  <time datetime="2016-06-09T14:37:03.000Z" itemprop="datePublished">2016-06-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/09/个人博客/">周立,你好</a>
-    </h1>
+    <a href="/2016/06/09/个人博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">周立,你好</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="建立文章"><a href="#建立文章" class="headerlink" title="建立文章"></a>建立文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/09/个人博客/" data-id="cip9723820001m6xw2gvvkc59" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/09/hello-world/" class="article-date">
-  <time datetime="2016-06-09T14:37:03.000Z" itemprop="datePublished">2016-06-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/09/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/09/hello-world/" data-id="cip9723850002m6xwmxygncyr" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 </section>
         
